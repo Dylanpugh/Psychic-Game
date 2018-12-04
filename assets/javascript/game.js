@@ -4,7 +4,7 @@ var wins = 0;
 
 var losses = 0;
 
-var guessesleft = 9;
+var guessesleft = 10;
 
 var guesses = 0;
 
@@ -20,7 +20,7 @@ var userGuess = event.key;
 
 console.log(userGuess);
 
-//This works for the alerts. But i'm having trouble changing the HTML.
+
 if(userGuess === computerChoice){
     wins++;
     alert("Wow, you're a psychic!");
@@ -28,19 +28,22 @@ if(userGuess === computerChoice){
 else{
     guessesleft--;
     losses++;
-    guesses+=9;
+    guesses++;
     alert("Not so Psychic are you?");
 }
 
-}
+//This causes my html to display the total wins, losses, tries, and attempts left.
+document.getElementById("wins").innerHTML = "Wins: " + wins;
 
-
-//Did i code this right for an outside HTML?
-document.getElementById('wins').innerHTML = "Wins: " + wins;
-
-document.getElementById('losses').innerHTML = "Losses: " + 
+document.getElementById("losses").innerHTML = "Losses: " + 
 losses;
 
-document.getElementById('guessesleft').innerHTML = "Guesses Left: " + guessesleft;
+document.getElementById("guessesleft").innerHTML = "Guesses Left: " + guessesleft;
 
-document.getElementById('guesses').innerHTML = "Your Guesses so Far: " + guesses;
+document.getElementById("guesses").innerHTML = "Your Guesses so Far: " + guesses;
+
+//Ends the game when guessleft equals 0
+if(guessesleft === 0){
+    alert("Game Over!");
+}
+}
